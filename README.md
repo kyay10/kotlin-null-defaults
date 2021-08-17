@@ -1,5 +1,8 @@
 # kotlin-null-defaults
 
+[![](https://jitpack.io/v/kyay10/kotlin-null-defaults.svg)](https://jitpack.io/#kyay10/kotlin-null-defaults)
+[![Gradle Plugin Portal](https://img.shields.io/maven-metadata/v/https/plugins.gradle.org/m2/com/github/kyay10/kotlin-null-defaults/com.github.kyay10.kotlinnulldefaults/maven-metadata.xml.svg?colorB=007ec6&label=gradlePluginPortal)](https://plugins.gradle.org/plugin/com.github.kyay10.kotlin-null-defaults) (
+Currently pending approval)
 
 A Kotlin compiler plugin that allows Java callers to pass in `null` for default parameters by automatically checking for nulls and substituting the default values .
 
