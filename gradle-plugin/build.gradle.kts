@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -5,7 +7,7 @@ plugins {
   kotlin("jvm")
   id("com.github.gmazzo.buildconfig")
   id("com.gradle.plugin-publish")
-  //id("convention.publication")
+  id("convention.publication")
 }
 
 dependencies {
@@ -29,6 +31,11 @@ buildConfig {
   buildConfigField("String", "PRELUDE_LIBRARY_NAME", "\"${preludeProject.name}\"")
   buildConfigField("String", "PRELUDE_LIBRARY_VERSION", "\"${preludeProject.version}\"")
 
+}
+
+java {
+  withSourcesJar()
+  withJavadocJar()
 }
 
 tasks.withType<KotlinCompile> {

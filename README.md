@@ -1,6 +1,9 @@
 # kotlin-null-defaults
+![Maven Central](https://img.shields.io/maven-central/v/io.github.kyay10.kotlin-null-defaults/kotlin-plugin) (Compiler plugin)
+![Maven Central](https://img.shields.io/maven-central/v/io.github.kyay10.kotlin-null-defaults/gradle-plugin) (Gradle Plugin)
 
 [![](https://jitpack.io/v/kyay10/kotlin-null-defaults.svg)](https://jitpack.io/#kyay10/kotlin-null-defaults)
+
 [![Gradle Plugin Portal](https://img.shields.io/maven-metadata/v/https/plugins.gradle.org/m2/io/github/kyay10/kotlin-null-defaults/io.github.kyay10.kotlinnulldefaults/maven-metadata.xml.svg?colorB=007ec6&label=gradlePluginPortal)](https://plugins.gradle.org/plugin/io.github.kyay10.kotlin-null-defaults) (
 Currently pending approval)
 
