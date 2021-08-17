@@ -6,6 +6,7 @@ plugins {
   kotlin("jvm")
   kotlin("kapt")
   id("org.jetbrains.dokka")
+  id("convention.publication")
 }
 
 dependencies {

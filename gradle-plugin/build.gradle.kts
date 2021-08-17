@@ -5,6 +5,7 @@ plugins {
   kotlin("jvm")
   id("com.github.gmazzo.buildconfig")
   id("com.gradle.plugin-publish")
+  //id("convention.publication")
 }
 
 dependencies {

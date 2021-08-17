@@ -1,11 +1,19 @@
 plugins {
   kotlin("multiplatform")
+  id("org.jetbrains.dokka")
+  id("convention.publication")
 }
 
 repositories {
   mavenCentral()
 }
+val dokkaHtml by tasks.getting(org.jetbrains.dokka.gradle.DokkaTask::class)
 
+val javadocJar: TaskProvider<Jar> by tasks.registering(Jar::class) {
+  dependsOn(dokkaHtml)
+  archiveClassifier.set("javadoc")
+  from(dokkaHtml.outputDirectory)
+}
 kotlin {
   targets.all {
     compilations.all {
@@ -64,6 +72,14 @@ kotlin {
         implementation(kotlin("test-common"))
         implementation(kotlin("test-annotations-common"))
       }
+    }
+  }
+}
+
+publishing {
+  publications {
+    publications.withType<MavenPublication> {
+      artifact(javadocJar)
     }
   }
 }

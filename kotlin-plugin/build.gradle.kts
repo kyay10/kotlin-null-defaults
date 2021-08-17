@@ -6,6 +6,7 @@ plugins {
   kotlin("jvm")
   kotlin("kapt")
   id("com.github.gmazzo.buildconfig")
+  id("convention.publication")
 }
 
 repositories {
