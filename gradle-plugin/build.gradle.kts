@@ -40,10 +40,10 @@ val pluginDisplayName = "Kotlin Null Defaults compiler plugin"
 gradlePlugin {
   plugins {
     create(pluginName) {
-      id = "com.github.kyay10.kotlin-null-defaults"
+      id = "io.github.kyay10.kotlin-null-defaults"
       displayName = pluginDisplayName
       description = pluginDescription
-      implementationClass = "com.github.kyay10.kotlinnulldefaults.NullDefaultsGradlePlugin"
+      implementationClass = "io.github.kyay10.kotlinnulldefaults.NullDefaultsGradlePlugin"
     }
   }
 }
@@ -52,14 +52,14 @@ pluginBundle {
   vcsUrl = website
   description = pluginDescription
 
-  version = "0.1.0"
+  version = "0.1.1"
   (plugins) {
     pluginName {
       displayName = pluginDisplayName
       tags = listOf(
         "kotlin"
       )
-      version = "0.1.0"
+      version = "0.1.1"
     }
   }
 }

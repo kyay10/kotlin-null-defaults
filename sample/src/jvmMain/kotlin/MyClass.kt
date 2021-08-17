@@ -1,4 +1,4 @@
-import com.github.kyay10.kotlinnulldefaults.NullDefaults
+import io.github.kyay10.kotlinnulldefaults.NullDefaults
 import org.jetbrains.annotations.Nullable
 
 
