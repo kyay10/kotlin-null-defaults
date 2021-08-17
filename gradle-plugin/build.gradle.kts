@@ -52,14 +52,14 @@ pluginBundle {
   vcsUrl = website
   description = pluginDescription
 
-  version = "0.1.0-SNAPSHOT"
+  version = "0.1.0"
   (plugins) {
     pluginName {
       displayName = pluginDisplayName
       tags = listOf(
         "kotlin"
       )
-      version = "0.1.0-SNAPSHOT"
+      version = "0.1.0"
     }
   }
 }

@@ -1,10 +1,10 @@
 plugins {
   kotlin("multiplatform") version "1.5.21"
-  id("com.github.kyay10.kotlin-null-defaults") version "0.1.0-SNAPSHOT"
+  id("com.github.kyay10.kotlin-null-defaults") version "0.1.0"
 }
 
 group = "com.github.kyay10.kotlin_null_defaults"
-version = "1.0-SNAPSHOT"
+version = "1.0"
 
 repositories {
   mavenCentral()
