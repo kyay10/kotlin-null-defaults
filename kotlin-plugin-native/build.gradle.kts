@@ -21,8 +21,7 @@ dependencies {
   implementation(project(":prelude"))
 }
 
-tasks.named("compileKotlin") { dependsOn("syncSource") }
-tasks.register<Sync>("syncSource") {
+val syncSource = tasks.register<Sync>("syncSource") {
   from(project(":kotlin-plugin").sourceSets.main.get().allSource)
   into("src/main/kotlin")
   filter {
@@ -33,6 +32,7 @@ tasks.register<Sync>("syncSource") {
 }
 
 tasks.withType<KotlinCompile> {
+  dependsOn("syncSource")
   kotlinOptions.jvmTarget = "1.8"
   kotlinOptions.freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
 }

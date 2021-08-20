@@ -1,6 +1,9 @@
 @file:Suppress("UnstableApiUsage")
 
+import com.gradle.publish.MavenCoordinates
+import groovy.lang.Closure
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.utils.addToStdlib.cast
 
 plugins {
   id("java-gradle-plugin")
@@ -9,6 +12,8 @@ plugins {
   id("com.gradle.plugin-publish")
   id("convention.publication")
 }
+
+
 
 dependencies {
   implementation(kotlin("stdlib"))
@@ -70,6 +75,13 @@ pluginBundle {
       version = "0.1.1"
     }
   }
+  val mavenCoordinatesConfiguration = { coords: MavenCoordinates ->
+    coords.groupId = group.cast()
+    coords.artifactId = name
+    coords.version = version.cast()
+  }
+
+  mavenCoordinates(mavenCoordinatesConfiguration)
 }
 val compileKotlin: KotlinCompile by tasks
 compileKotlin.kotlinOptions {
