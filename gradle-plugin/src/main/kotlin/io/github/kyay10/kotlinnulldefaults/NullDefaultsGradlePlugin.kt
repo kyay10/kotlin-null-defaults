@@ -34,20 +34,21 @@ class NullDefaultsGradlePlugin : KotlinCompilerPluginSupportPlugin {
 
   override fun isApplicable(kotlinCompilation: KotlinCompilation<*>): Boolean = true
 
-  override fun getCompilerPluginId(): String = io.github.kyay10.kotlinnulldefaults.BuildConfig.KOTLIN_PLUGIN_ID
+  override fun getCompilerPluginId(): String = BuildConfig.KOTLIN_PLUGIN_ID
 
   override fun getPluginArtifact(): SubpluginArtifact = SubpluginArtifact(
-    groupId = io.github.kyay10.kotlinnulldefaults.BuildConfig.KOTLIN_PLUGIN_GROUP,
-    artifactId = io.github.kyay10.kotlinnulldefaults.BuildConfig.KOTLIN_PLUGIN_NAME,
-    version = io.github.kyay10.kotlinnulldefaults.BuildConfig.KOTLIN_PLUGIN_VERSION
+    groupId = BuildConfig.KOTLIN_PLUGIN_GROUP,
+    artifactId = BuildConfig.KOTLIN_PLUGIN_NAME,
+    version = BuildConfig.KOTLIN_PLUGIN_VERSION
   )
 
   override fun getPluginArtifactForNative(): SubpluginArtifact = SubpluginArtifact(
-    groupId = io.github.kyay10.kotlinnulldefaults.BuildConfig.KOTLIN_PLUGIN_GROUP,
-    artifactId = io.github.kyay10.kotlinnulldefaults.BuildConfig.KOTLIN_PLUGIN_NAME + "-native",
-    version = io.github.kyay10.kotlinnulldefaults.BuildConfig.KOTLIN_PLUGIN_VERSION
+    groupId = BuildConfig.KOTLIN_PLUGIN_GROUP,
+    artifactId = BuildConfig.KOTLIN_PLUGIN_NAME + "-native",
+    version = BuildConfig.KOTLIN_PLUGIN_VERSION
   )
 
+  @Suppress("UNUSED_VARIABLE")
   override fun applyToCompilation(
     kotlinCompilation: KotlinCompilation<*>
   ): Provider<List<SubpluginOption>> {
@@ -58,7 +59,7 @@ class NullDefaultsGradlePlugin : KotlinCompilerPluginSupportPlugin {
       kotlinCompilation.compilationName
 
     kotlinCompilation.dependencies {
-      implementation("${io.github.kyay10.kotlinnulldefaults.BuildConfig.PRELUDE_LIBRARY_GROUP}:${io.github.kyay10.kotlinnulldefaults.BuildConfig.PRELUDE_LIBRARY_NAME}:${io.github.kyay10.kotlinnulldefaults.BuildConfig.PRELUDE_LIBRARY_VERSION}")
+      implementation("${BuildConfig.PRELUDE_LIBRARY_GROUP}:${BuildConfig.PRELUDE_LIBRARY_NAME}:${BuildConfig.PRELUDE_LIBRARY_VERSION}")
     }
 
     return project.provider {

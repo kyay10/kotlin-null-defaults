@@ -26,7 +26,12 @@ import org.gradle.api.provider.Provider
 import org.gradle.api.provider.ProviderFactory
 import kotlin.reflect.KProperty
 
-open class NullDefaultsGradleExtension(objects: ObjectFactory, providerFactory: ProviderFactory, projectLayout: ProjectLayout)
+@Suppress("UNUSED_PARAMETER")
+open class NullDefaultsGradleExtension(
+  objects: ObjectFactory,
+  providerFactory: ProviderFactory,
+  projectLayout: ProjectLayout
+)
 
 operator fun <T> Property<T>.setValue(thisRef: Any?, property: KProperty<*>, value: T) {
   set(value)
@@ -41,6 +46,7 @@ operator fun <T> PropertyAsProvider<T>.setValue(thisRef: Any?, property: KProper
 
 operator fun <T> PropertyAsProvider<T>.getValue(thisRef: Any?, property: KProperty<*>): Provider<T> = this.property
 
+@Suppress("INLINE_CLASS_DEPRECATED") // Gradle is stuck on 1.4, and so @JvmInline can't be used
 inline class PropertyAsProvider<T>(val property: Property<T>)
 
 val <T> Property<T>.asProvider: PropertyAsProvider<T> get() = PropertyAsProvider(this)

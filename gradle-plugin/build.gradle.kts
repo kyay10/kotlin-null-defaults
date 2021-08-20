@@ -1,7 +1,6 @@
 @file:Suppress("UnstableApiUsage")
 
 import com.gradle.publish.MavenCoordinates
-import groovy.lang.Closure
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.jetbrains.kotlin.utils.addToStdlib.cast
 
@@ -45,6 +44,7 @@ java {
 
 tasks.withType<KotlinCompile> {
   kotlinOptions.jvmTarget = "1.8"
+  kotlinOptions.freeCompilerArgs += "-Xinline-classes"
 }
 val pluginDescription =
   "Kotlin compiler plugin that allows Java callers to use null in place of default parameters"
@@ -82,8 +82,4 @@ pluginBundle {
   }
 
   mavenCoordinates(mavenCoordinatesConfiguration)
-}
-val compileKotlin: KotlinCompile by tasks
-compileKotlin.kotlinOptions {
-  freeCompilerArgs = listOf("-Xinline-classes")
 }

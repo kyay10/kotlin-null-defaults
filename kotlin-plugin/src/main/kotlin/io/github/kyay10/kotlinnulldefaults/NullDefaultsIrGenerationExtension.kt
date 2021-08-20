@@ -50,6 +50,7 @@ import org.jetbrains.kotlin.utils.addToStdlib.cast
 
 val NULL_DEFAULTS_FQNAME = FqName("io.github.kyay10.kotlinnulldefaults.NullDefaults")
 
+@Suppress("unused")
 class NullDefaultsIrGenerationExtension(
   private val project: Project,
   private val messageCollector: MessageCollector,

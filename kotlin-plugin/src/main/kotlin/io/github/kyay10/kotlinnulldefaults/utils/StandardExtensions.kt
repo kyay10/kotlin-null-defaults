@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package io.github.kyay10.kotlinnulldefaults.utils
 
 import kotlin.contracts.ExperimentalContracts
@@ -39,7 +41,7 @@ infix fun <A, B> A?.toNotNull(that: B?): Pair<A, B>? = this?.let { a -> that?.le
 fun <T> Array<out T>?.toListOrEmpty(): List<T> = this?.toList() ?: emptyList()
 
 inline fun <T> Boolean.ifTrue(block: () -> T): T? {
-  return if(this) block() else null
+  return if (this) block() else null
 }
 
 operator fun String.times(amount: Int): String = repeat(amount)
@@ -60,13 +62,13 @@ inline fun <T, R, C : MutableCollection<in R>> List<T>.flatMapTo(destination: C,
 /**
  * Returns a single list of all elements yielded from results of [transform] function being invoked on each element of original collection.
  *
- * @sample samples.collections.Collections.Transformations.flatMap
  */
 @OptIn(ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 inline fun <T, R> List<T>.flatMap(transform: (T) -> Iterable<R>): List<R> {
-  return flatMapTo(ArrayList<R>(), transform)
+  return flatMapTo(ArrayList(), transform)
 }
+
 /**
  * Appends all elements yielded from results of [transform] function being invoked on each element of original collection, to the given [destination].
  */
@@ -86,11 +88,10 @@ inline fun <T, R, C : MutableCollection<in R>> List<T>.flatMapTo(destination: C,
 /**
  * Returns a single list of all elements yielded from results of [transform] function being invoked on each element of original collection.
  *
- * @sample samples.collections.Collections.Transformations.flatMap
  */
 @OptIn(ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @JvmName("flatMapArrayTo")
 inline fun <T, R> List<T>.flatMap(transform: (T) -> Array<R>): List<R> {
-  return flatMapTo(ArrayList<R>(), transform)
+  return flatMapTo(ArrayList(), transform)
 }

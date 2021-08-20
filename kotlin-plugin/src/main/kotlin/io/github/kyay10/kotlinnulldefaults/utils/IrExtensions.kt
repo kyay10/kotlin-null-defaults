@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package io.github.kyay10.kotlinnulldefaults.utils
 
 import org.jetbrains.kotlin.backend.common.FileLoweringPass

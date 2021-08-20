@@ -27,7 +27,8 @@ fun makeNetworkCall(
 
 @JvmOverloads
 @NullDefaults
-fun createUrlFrom2Parts(@Nullable firstPart: String = "foo", @Nullable secondPart: String = "bar") = "$firstPart/$secondPart"
+fun createUrlFrom2Parts(@Nullable firstPart: String = "foo", @Nullable secondPart: String = "bar") =
+  "$firstPart/$secondPart"
 
 fun main() {
   Main.main(null)

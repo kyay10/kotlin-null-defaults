@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalStdlibApi::class)
+@file:Suppress("unused")
 
 package io.github.kyay10.kotlinnulldefaults.utils
 
@@ -6,6 +7,7 @@ import org.jetbrains.kotlin.com.intellij.openapi.vfs.VirtualFile
 import java.io.File
 import java.io.FilenameFilter
 
+@OptIn(ExperimentalStdlibApi::class)
 fun VirtualFile.collectFiles(): List<VirtualFile> {
   return buildList {
     listOf(this@collectFiles).collectFiles(this)

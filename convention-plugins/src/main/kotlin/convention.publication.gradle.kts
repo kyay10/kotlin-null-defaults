@@ -1,10 +1,3 @@
-import org.gradle.api.publish.maven.MavenPublication
-import org.gradle.api.tasks.bundling.Jar
-import org.gradle.internal.impldep.org.bouncycastle.asn1.x500.style.RFC4519Style.description
-import org.gradle.internal.impldep.org.bouncycastle.asn1.x500.style.RFC4519Style.name
-import org.gradle.internal.impldep.org.bouncycastle.cms.RecipientId.password
-import org.gradle.kotlin.dsl.`maven-publish`
-import org.gradle.kotlin.dsl.signing
 import java.util.*
 
 plugins {

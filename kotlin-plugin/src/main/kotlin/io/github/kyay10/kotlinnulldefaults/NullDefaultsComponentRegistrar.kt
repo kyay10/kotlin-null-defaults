@@ -24,10 +24,6 @@ import org.jetbrains.kotlin.cli.common.messages.MessageCollector
 import org.jetbrains.kotlin.com.intellij.mock.MockProject
 import org.jetbrains.kotlin.compiler.plugin.ComponentRegistrar
 import org.jetbrains.kotlin.config.CompilerConfiguration
-import org.jetbrains.kotlin.resolve.jvm.extensions.AnalysisHandlerExtension
-import java.lang.reflect.Field
-import java.lang.reflect.Modifier
-import kotlin.reflect.jvm.javaField
 
 @AutoService(ComponentRegistrar::class)
 class NullDefaultsComponentRegistrar @Suppress("unused") constructor() :

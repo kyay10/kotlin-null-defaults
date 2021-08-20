@@ -15,6 +15,8 @@
  * limitations under the License.
  */
 
+@file:Suppress("unused")
+
 package io.github.kyay10.kotlinnulldefaults
 
 import com.tschuchort.compiletesting.KotlinCompilation
@@ -31,9 +33,9 @@ import kotlin.test.assertEquals
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class NullDefaultsPluginTest {
-  val outStream = ByteArrayOutputStream()
-  val sampleFiles = mutableListOf<SourceFile>()
-  lateinit var compiledSamples: KotlinCompilation.Result
+  private val outStream = ByteArrayOutputStream()
+  private val sampleFiles = mutableListOf<SourceFile>()
+  private lateinit var compiledSamples: KotlinCompilation.Result
 
   @BeforeAll
   fun setupSampleFiles() {
@@ -67,8 +69,8 @@ class NullDefaultsPluginTest {
         MyClass(name=, addresses=[], optionalConfig=null)
         MyClass(name=, addresses=[Hello, World], optionalConfig=null)
         MyClass(name=test, addresses=[], optionalConfig=Configuration(data=foo/bazzz))
-        Configuration(data=42)""".trimIndent().trim()
-      , printed.trim())
+        Configuration(data=42)""".trimIndent().trim(), printed.trim()
+    )
   }
 }
 

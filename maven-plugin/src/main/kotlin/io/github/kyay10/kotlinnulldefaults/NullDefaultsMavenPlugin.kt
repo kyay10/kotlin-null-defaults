@@ -1,4 +1,3 @@
-
 /*
  * Copyright 2010-2016 JetBrains s.r.o.
  * Copyright (C) 2021 Youssef Shoaib
@@ -17,11 +16,10 @@
  */
 package io.github.kyay10.kotlinnulldefaults
 
-import io.github.kyay10.kotlinnulldefaults.BuildConfig
-import org.apache.maven.plugin.*
-import org.apache.maven.plugins.annotations.Component
-import org.apache.maven.project.*
-import org.jetbrains.kotlin.maven.*
+import org.apache.maven.plugin.MojoExecution
+import org.apache.maven.project.MavenProject
+import org.jetbrains.kotlin.maven.KotlinMavenPluginExtension
+import org.jetbrains.kotlin.maven.PluginOption
 
 class NullDefaultsMavenPlugin : KotlinMavenPluginExtension {
   override fun getCompilerPluginId() = BuildConfig.KOTLIN_PLUGIN_ID

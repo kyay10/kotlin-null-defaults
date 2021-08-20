@@ -21,7 +21,7 @@ dependencies {
   compileOnly("com.google.auto.service:auto-service-annotations:1.0-rc7")
 
   // Needed for running tests since the tests inherit out classpath
-  api(project(":prelude"))
+  implementation(project(":prelude"))
 
   testImplementation(kotlin("test-junit5"))
   testImplementation(platform("org.junit:junit-bom:5.7.1"))
@@ -52,6 +52,7 @@ buildConfig {
 tasks.withType<KotlinCompile> {
   kotlinOptions.jvmTarget = "1.8"
   kotlinOptions.freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
+  kotlinOptions.freeCompilerArgs += "-Xinline-classes"
 }
 
 java {
@@ -70,9 +71,4 @@ tasks.withType<Test> {
   testLogging {
     events("passed", "skipped", "failed")
   }
-}
-
-val compileKotlin: KotlinCompile by tasks
-compileKotlin.kotlinOptions {
-    freeCompilerArgs = listOf("-Xinline-classes")
 }
