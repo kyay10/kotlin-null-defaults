@@ -13,12 +13,12 @@ repositories {
   mavenCentral()
 }
 dependencies {
-  implementation("org.ow2.asm:asm:9.1")
+  implementation("org.ow2.asm:asm:9.3")
   compileOnly("org.jetbrains.kotlin:kotlin-compiler-embeddable")
   implementation("org.jetbrains.kotlin:kotlin-reflect")
 
-  kapt("com.google.auto.service:auto-service:1.0-rc7")
-  compileOnly("com.google.auto.service:auto-service-annotations:1.0-rc7")
+  kapt("com.google.auto.service:auto-service:1.0.1")
+  compileOnly("com.google.auto.service:auto-service-annotations:1.0.1")
 
   // Needed for running tests since the tests inherit out classpath
   implementation(project(":prelude"))
@@ -27,7 +27,7 @@ dependencies {
   testImplementation(platform("org.junit:junit-bom:5.7.1"))
   testImplementation("org.junit.jupiter:junit-jupiter")
   testImplementation("org.jetbrains.kotlin:kotlin-compiler-embeddable")
-  testImplementation("com.github.tschuchortdev:kotlin-compile-testing:1.3.4")
+  testImplementation("com.github.tschuchortdev:kotlin-compile-testing:1.4.9")
 }
 
 buildConfig {
@@ -52,7 +52,7 @@ buildConfig {
 tasks.withType<KotlinCompile> {
   kotlinOptions.jvmTarget = "1.8"
   kotlinOptions.freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
-  kotlinOptions.freeCompilerArgs += "-Xinline-classes"
+  kotlinOptions.freeCompilerArgs += "-Xcontext-receivers"
 }
 
 java {
@@ -63,6 +63,7 @@ publishing {
   publications {
     create<MavenPublication>("maven") {
       from(components["java"])
+      version = rootProject.version.toString()
     }
   }
 }

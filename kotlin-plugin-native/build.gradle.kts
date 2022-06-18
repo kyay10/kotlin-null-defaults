@@ -10,12 +10,12 @@ plugins {
 }
 
 dependencies {
-  implementation("org.ow2.asm:asm:9.1")
+  implementation("org.ow2.asm:asm:9.3")
   compileOnly("org.jetbrains.kotlin:kotlin-compiler")
   implementation("org.jetbrains.kotlin:kotlin-reflect")
 
-  kapt("com.google.auto.service:auto-service:1.0-rc7")
-  compileOnly("com.google.auto.service:auto-service-annotations:1.0-rc7")
+  kapt("com.google.auto.service:auto-service:1.0.1")
+  compileOnly("com.google.auto.service:auto-service-annotations:1.0.1")
 
   // Needed for running tests since the tests inherit out classpath
   implementation(project(":prelude"))
@@ -35,6 +35,7 @@ tasks.withType<KotlinCompile> {
   dependsOn("syncSource")
   kotlinOptions.jvmTarget = "1.8"
   kotlinOptions.freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
+  kotlinOptions.freeCompilerArgs += "-Xcontext-receivers"
 }
 
 java {
@@ -46,6 +47,7 @@ publishing {
   publications {
     create<MavenPublication>("maven") {
       from(components["java"])
+      version = rootProject.version.toString()
     }
   }
 }

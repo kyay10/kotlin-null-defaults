@@ -25,7 +25,6 @@ import org.jetbrains.kotlin.backend.common.lower.irBlockBody
 import org.jetbrains.kotlin.cli.common.messages.MessageCollector
 import org.jetbrains.kotlin.com.intellij.openapi.project.Project
 import org.jetbrains.kotlin.config.CompilerConfiguration
-import org.jetbrains.kotlin.fir.COPY_NAME
 import org.jetbrains.kotlin.ir.IrStatement
 import org.jetbrains.kotlin.ir.ObsoleteDescriptorBasedAPI
 import org.jetbrains.kotlin.ir.UNDEFINED_OFFSET
@@ -46,6 +45,7 @@ import org.jetbrains.kotlin.ir.visitors.IrElementTransformerVoid
 import org.jetbrains.kotlin.ir.visitors.transformChildrenVoid
 import org.jetbrains.kotlin.name.FqName
 import org.jetbrains.kotlin.name.Name
+import org.jetbrains.kotlin.resolve.DataClassResolver
 import org.jetbrains.kotlin.utils.addToStdlib.cast
 
 val NULL_DEFAULTS_FQNAME = FqName("io.github.kyay10.kotlinnulldefaults.NullDefaults")
@@ -81,7 +81,7 @@ class NullDefaultsIrGenerationExtension(
         val isClassAnnotated = declaration.safeAs<IrConstructor>()?.constructedClass?.hasNullDefaultsAnnotation == true
         val isFunctionAnnotated = declaration.hasNullDefaultsAnnotation
         val isCopyFun =
-          declaration.origin == IrDeclarationOrigin.GENERATED_DATA_CLASS_MEMBER && declaration.name == COPY_NAME
+          declaration.origin == IrDeclarationOrigin.GENERATED_DATA_CLASS_MEMBER && DataClassResolver.isCopy(declaration.name)
         val isCopyWhichIsIndirectlyAnnotated = isCopyFun && declaration.parent.safeAs<IrClass>().let { clazz ->
           clazz?.hasNullDefaultsAnnotation == true || clazz?.primaryConstructor?.hasNullDefaultsAnnotation == true
         }

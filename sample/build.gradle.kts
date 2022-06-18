@@ -1,6 +1,6 @@
 plugins {
-  kotlin("multiplatform") version "1.5.21"
-  id("io.github.kyay10.kotlin-null-defaults") version "0.1.1"
+  kotlin("multiplatform") version "1.7.0"
+  id("io.github.kyay10.kotlin-null-defaults") version "0.2.0"
 }
 
 group = "io.github.kyay10.kotlin_null_defaults"

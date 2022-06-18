@@ -12,8 +12,6 @@ plugins {
   id("convention.publication")
 }
 
-
-
 dependencies {
   implementation(kotlin("stdlib"))
   implementation(kotlin("gradle-plugin-api"))
@@ -44,7 +42,6 @@ java {
 
 tasks.withType<KotlinCompile> {
   kotlinOptions.jvmTarget = "1.8"
-  kotlinOptions.freeCompilerArgs += "-Xinline-classes"
 }
 val pluginDescription =
   "Kotlin compiler plugin that allows Java callers to use null in place of default parameters"
@@ -65,14 +62,14 @@ pluginBundle {
   vcsUrl = website
   description = pluginDescription
 
-  version = "0.1.1"
+  version = rootProject.version.toString()
   (plugins) {
     pluginName {
       displayName = pluginDisplayName
       tags = listOf(
         "kotlin"
       )
-      version = "0.1.1"
+      version = rootProject.version.toString()
     }
   }
   val mavenCoordinatesConfiguration = { coords: MavenCoordinates ->
